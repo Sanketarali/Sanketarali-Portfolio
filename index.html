@@ -1,34 +1,24 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
 <html lang="en" class="scroll-smooth" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sanket Arali</title>
-    <link rel="icon" href="https://www.svgrepo.com/show/349479/code-computer-programming-web-development.svg" type="image/svg+xml">
+    <link rel="icon" href="https://assets.vercel.com/image/upload/front/favicon/vercel/180x180.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sanket Arali</title>
-    
-    <!-- Vercel favicon -->
-    <link rel="icon" href="https://assets.vercel.com/image/upload/q_auto/front/favicon/vercel/180x180.png" type="image/png">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
 </head>
 
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://kit.fontawesome.com/a1a1f0a1c6.js" crossorigin="anonymous"></script>
     <style>
-        :root {
+        /* Dark theme vars */
+        [data-theme="dark"] {
             --bg-color: #0c0a09;
             --card-color: #1c1917;
             --text-color: #fafaf9;
+            --heading-color: #ffffff;
             --muted-text-color: #a8a29e;
             --border-color: #292524;
             --btn-bg: #292524;
@@ -39,6 +29,24 @@
             --gradient-3: rgba(16, 185, 129, 0.1);
             --gradient-4: rgba(251, 191, 36, 0.1);
             --gradient-5: rgba(139, 92, 246, 0.1);
+        }
+
+        /* Light theme vars */
+        [data-theme="light"] {
+            --bg-color: #f7f7f8;
+            --card-color: #ffffff;
+            --text-color: #0c0a09;
+            --heading-color: #0b1220;
+            --muted-text-color: #5b5b5b;
+            --border-color: #e6e6e6;
+            --btn-bg: #f1f5f9;
+            --btn-border: #e2e8f0;
+            --hover-btn-bg: #e2e8f0;
+            --gradient-1: rgba(59, 130, 246, 0.08);
+            --gradient-2: rgba(236, 72, 153, 0.06);
+            --gradient-3: rgba(16, 185, 129, 0.06);
+            --gradient-4: rgba(251, 191, 36, 0.06);
+            --gradient-5: rgba(139, 92, 246, 0.06);
         }
 
         body {
@@ -79,6 +87,11 @@
         .hero-image-container {
             animation: float 4s ease-in-out infinite;
         }
+
+        /* Make components that used explicit white follow the theme */
+        h1, h2, h3, .card h3, .text-white {
+            color: var(--heading-color) !important;
+        }
         
         .projects-grid .card {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -95,6 +108,16 @@
         
         .nav-link:hover {
             transform: scale(1.05);
+        }
+
+        /* Ensure nav link hover color follows theme */
+        .nav-link:hover {
+            color: var(--heading-color) !important;
+        }
+
+        /* Header background should follow theme variables (override utility with opacity suffix) */
+        header {
+            background-color: var(--card-color) !important;
         }
 
         .btn-magic {
@@ -116,16 +139,30 @@
         }
 
         .card {
-            background-color: var(--card-color);
-            border-color: var(--border-color);
+            background-color: var(--card-color) !important;
+            border-color: var(--border-color) !important;
+            color: var(--text-color) !important;
         }
-        .text-stone-300 { color: var(--muted-text-color); }
-        .text-stone-400 { color: var(--muted-text-color); }
-        .bg-stone-950 { background-color: var(--bg-color); }
-        .bg-stone-900 { background-color: var(--card-color); }
-        .border-stone-800 { border-color: var(--border-color); }
-        .bg-stone-800 { background-color: var(--btn-bg); }
-        .border-stone-700 { border-color: var(--btn-border); }
+        /* Ensure every text node inside a card follows the theme color (overrides utility classes like text-white) */
+        .card, .card * {
+            color: var(--text-color) !important;
+        }
+        /* overwrite utility text colors to use theme variables */
+        .text-stone-300 { color: var(--muted-text-color) !important; }
+        .text-stone-400 { color: var(--muted-text-color) !important; }
+        /* background utilities */
+        .bg-stone-950 { background-color: var(--bg-color) !important; }
+        .bg-stone-900 { background-color: var(--card-color) !important; }
+        .border-stone-800 { border-color: var(--border-color) !important; }
+        .bg-stone-800 { background-color: var(--btn-bg) !important; }
+        .border-stone-700 { border-color: var(--btn-border) !important; }
+        /* buttons and small elements */
+        .btn-magic {
+            background-color: var(--btn-bg) !important;
+            border-color: var(--btn-border) !important;
+            color: var(--text-color) !important;
+        }
+        .btn-magic:hover { background-color: var(--hover-btn-bg) !important; }
         .group-hover\:bg-gradient-to-br {
             opacity: 0;
             transition: opacity 0.3s ease;
@@ -139,6 +176,22 @@
         #project-4-gradient { background-image: linear-gradient(to bottom right, var(--gradient-4), transparent); }
         #project-5-gradient { background-image: linear-gradient(to bottom right, var(--gradient-5), transparent); }
         .bg-blue-400 { background-color: #60a5fa; }
+        /* Footer should follow theme variables */
+        footer {
+            background: linear-gradient(to bottom, var(--bg-color) 0%, var(--card-color) 100%) !important;
+            border-color: var(--border-color) !important;
+            color: var(--muted-text-color) !important;
+        }
+        footer a { color: var(--muted-text-color) !important; }
+        footer a:hover { color: var(--heading-color) !important; }
+        /* Map wrapper for responsive embed */
+        .map-wrapper iframe {
+            width: 100%;
+            height: auto;
+            min-height: 280px;
+            aspect-ratio: 16 / 9;
+            display: block;
+        }
     </style>
 </head>
 <body class="gradient-bg">
@@ -147,7 +200,7 @@
     <header class="py-6 sticky top-0 z-50 bg-stone-950/80 backdrop-blur-md transition-colors">
         <div class="container mx-auto px-4 flex justify-between items-center">
             <a href="#" class="text-2xl font-bold"></a>
-            <nav class="hidden md:flex items-center space-x-6">
+            <nav id="main-nav" class="hidden md:flex items-center space-x-6">
                 <a href="#about" class="nav-link text-sm text-stone-300 hover:text-white transition">About</a>
                 <a href="#experience" class="nav-link text-sm text-stone-300 hover:text-white transition">Experience</a>
                 <a href="#education" class="nav-link text-sm text-stone-300 hover:text-white transition">Education</a>
@@ -155,17 +208,36 @@
                 <a href="#skills" class="nav-link text-sm text-stone-300 hover:text-white transition">Skills</a>
                 <a href="#contact" class="nav-link text-sm text-stone-300 hover:text-white transition">Contact</a>
             </nav>
-            <button class="md:hidden text-stone-300">
+            <button id="mobile-menu-btn" class="md:hidden text-stone-300" aria-label="Open mobile menu" aria-expanded="false">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                 </svg>
             </button>
+            <!-- Theme toggle -->
+            <button id="theme-toggle" class="ml-4 text-stone-300 inline-flex items-center px-3 py-2 rounded-md" aria-label="Toggle theme">
+                <i id="theme-icon" class="fas fa-moon"></i>
+            </button>
+            <!-- Mobile full-width panel nav (hidden on desktop) -->
+            <nav id="mobile-nav" class="md:hidden fixed top-0 left-0 right-0 transform -translate-y-full transition-transform duration-300 bg-stone-900/95 backdrop-blur-sm z-50">
+                <div class="px-4 py-4 flex items-center justify-between border-b border-stone-800">
+                    <div class="text-lg font-semibold text-stone-200">Menu</div>
+                    <button id="mobile-nav-close" class="text-stone-200 text-2xl" aria-label="Close menu">&times;</button>
+                </div>
+                <div class="px-4 py-6 space-y-2">
+                    <a href="#about" class="block px-3 py-2 text-sm text-stone-300 hover:text-white">About</a>
+                    <a href="#experience" class="block px-3 py-2 text-sm text-stone-300 hover:text-white">Experience</a>
+                    <a href="#education" class="block px-3 py-2 text-sm text-stone-300 hover:text-white">Education</a>
+                    <a href="#projects" class="block px-3 py-2 text-sm text-stone-300 hover:text-white">Projects</a>
+                    <a href="#skills" class="block px-3 py-2 text-sm text-stone-300 hover:text-white">Skills</a>
+                    <a href="#contact" class="block px-3 py-2 text-sm text-stone-300 hover:text-white">Contact</a>
+                </div>
+            </nav>
         </div>
     </header>
 
     <main class="container mx-auto px-4">
-        <!-- Hero Section -->
-        <section id="hero" class="h-screen flex items-center justify-center text-center py-20">
+    <!-- Hero Section -->
+    <section id="hero" class="min-h-[70vh] md:h-screen flex items-center justify-center text-center py-12 md:py-20">
     <div class="max-w-4xl w-full">
         <div class="hero-image-container mb-8">
             <img src="https://avatars.githubusercontent.com/u/110754364?v=4" alt="Profile Picture" class="rounded-full w-40 h-40 mx-auto mb-4 object-cover">
@@ -177,9 +249,9 @@
             I'm an AI assistant specializing in web development. I can help you build beautiful and functional websites, from simple designs to complex applications.
         </p>
         <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-            <a href="#projects" class="btn-magic text-sm px-6 py-3 rounded-full border border-stone-700 bg-stone-800 hover:bg-stone-700 transition inline-block">
-                Explore My Projects
-            </a>
+                <a href="#projects" class="btn-magic text-sm px-6 py-3 rounded-full border border-stone-700 bg-stone-800 hover:bg-stone-700 transition inline-block">
+                    Get in Touch
+                </a>
             <a href="#contact" class="btn-magic text-sm px-6 py-3 rounded-full border border-stone-700 bg-stone-800 hover:bg-stone-700 transition inline-block">
                 Get in Touch
             </a>
@@ -192,9 +264,9 @@
         <section id="about" class="py-20">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">About Me</h2>
             <div class="max-w-3xl mx-auto text-center">
-                <p class="text-sm md:text-base text-stone-400 mb-4">
-                    I am a full-stack web developer with a passion for creating dynamic and responsive user interfaces. My journey began with a curiosity for how websites work, which quickly evolved into a dedicated pursuit of mastering modern web technologies. I thrive on solving complex problems and am constantly learning new frameworks and tools to improve my craft.
-                </p>
+                        <p class="text-sm md:text-base text-stone-400 mb-4">
+                            I am a passionate web developer with a focus on creating dynamic and responsive user interfaces. My journey began with a curiosity for how websites work, which quickly evolved into a dedicated pursuit of mastering modern web technologies. I thrive on solving complex problems and am constantly learning new frameworks and tools to improve my craft.
+                        </p>
                 <p class="text-sm md:text-base text-stone-400">
                     I believe in clean code, robust architecture, and a user-centric approach to design. Whether it's building a simple static page or a complex, data-driven application, my goal is always to deliver a high-quality product that is both efficient and delightful to use.
                 </p>
@@ -273,9 +345,11 @@
                <div class="group card bg-stone-900 border border-stone-800 rounded-2xl p-6 hover-glow transition-all relative overflow-hidden">
                     <div id="project-5-gradient" class="absolute inset-0 group-hover:bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     <div class="relative z-10">
-                        <div class="w-12 h-12 bg-indigo-500 rounded-lg flex items-center justify-center mb-4">
-                            <i class="fas fa-brain text-white text-xl"></i>
+                        <!-- Placeholder image for the project -->
+                        <div class="mb-4">
+                            <img src="https://picsum.photos/seed/p1/600/300" alt="Project screenshot" class="w-full h-36 object-cover rounded-lg">
                         </div>
+                        <!-- icon removed as requested -->
                         <h3 class="text-lg font-semibold text-white mb-2">AI Chat Bot</h3>
                         <p class="text-stone-400 text-sm mb-4">An intelligent chatbot using machine learning and natural
                             language processing.</p>
@@ -285,11 +359,6 @@
                             <span class="px-2 py-1 bg-stone-800 text-stone-300 rounded text-xs">Flask</span>
                         </div>
                         <div class="flex space-x-3 mt-6">
-                            <a href="#"
-                                class="flex items-center space-x-2 px-4 py-2 bg-stone-800 hover:bg-stone-700 border border-stone-700 rounded-lg text-white text-sm transition-all">
-                                <i class="fas fa-globe text-xs"></i>
-                                <span>Website</span>
-                            </a>
                             <a href="#"
                                 class="flex items-center space-x-2 px-4 py-2 bg-stone-800 hover:bg-stone-700 border border-stone-700 rounded-lg text-white text-sm transition-all">
                                 <i class="fab fa-github text-xs"></i>
@@ -305,9 +374,10 @@
                   <div class="group card bg-stone-900 border border-stone-800 rounded-2xl p-6 hover-glow transition-all relative overflow-hidden">
                     <div id="project-5-gradient" class="absolute inset-0 group-hover:bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     <div class="relative z-10">
-                        <div class="w-12 h-12 bg-indigo-500 rounded-lg flex items-center justify-center mb-4">
-                            <i class="fas fa-brain text-white text-xl"></i>
+                        <div class="mb-4">
+                            <img src="https://picsum.photos/seed/p2/600/300" alt="Project screenshot" class="w-full h-36 object-cover rounded-lg">
                         </div>
+                        <!-- icon removed as requested -->
                         <h3 class="text-lg font-semibold text-white mb-2">AI Chat Bot</h3>
                         <p class="text-stone-400 text-sm mb-4">An intelligent chatbot using machine learning and natural
                             language processing.</p>
@@ -317,11 +387,6 @@
                             <span class="px-2 py-1 bg-stone-800 text-stone-300 rounded text-xs">Flask</span>
                         </div>
                         <div class="flex space-x-3 mt-6">
-                            <a href="#"
-                                class="flex items-center space-x-2 px-4 py-2 bg-stone-800 hover:bg-stone-700 border border-stone-700 rounded-lg text-white text-sm transition-all">
-                                <i class="fas fa-globe text-xs"></i>
-                                <span>Website</span>
-                            </a>
                             <a href="#"
                                 class="flex items-center space-x-2 px-4 py-2 bg-stone-800 hover:bg-stone-700 border border-stone-700 rounded-lg text-white text-sm transition-all">
                                 <i class="fab fa-github text-xs"></i>
@@ -336,9 +401,10 @@
                   <div class="group card bg-stone-900 border border-stone-800 rounded-2xl p-6 hover-glow transition-all relative overflow-hidden">
                     <div id="project-5-gradient" class="absolute inset-0 group-hover:bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     <div class="relative z-10">
-                        <div class="w-12 h-12 bg-indigo-500 rounded-lg flex items-center justify-center mb-4">
-                            <i class="fas fa-brain text-white text-xl"></i>
+                        <div class="mb-4">
+                            <img src="https://picsum.photos/seed/p3/600/300" alt="Project screenshot" class="w-full h-36 object-cover rounded-lg">
                         </div>
+                        <!-- icon removed as requested -->
                         <h3 class="text-lg font-semibold text-white mb-2">AI Chat Bot</h3>
                         <p class="text-stone-400 text-sm mb-4">An intelligent chatbot using machine learning and natural
                             language processing.</p>
@@ -348,11 +414,6 @@
                             <span class="px-2 py-1 bg-stone-800 text-stone-300 rounded text-xs">Flask</span>
                         </div>
                         <div class="flex space-x-3 mt-6">
-                            <a href="#"
-                                class="flex items-center space-x-2 px-4 py-2 bg-stone-800 hover:bg-stone-700 border border-stone-700 rounded-lg text-white text-sm transition-all">
-                                <i class="fas fa-globe text-xs"></i>
-                                <span>Website</span>
-                            </a>
                             <a href="#"
                                 class="flex items-center space-x-2 px-4 py-2 bg-stone-800 hover:bg-stone-700 border border-stone-700 rounded-lg text-white text-sm transition-all">
                                 <i class="fab fa-github text-xs"></i>
@@ -366,9 +427,10 @@
                <div class="group card bg-stone-900 border border-stone-800 rounded-2xl p-6 hover-glow transition-all relative overflow-hidden">
                     <div id="project-5-gradient" class="absolute inset-0 group-hover:bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     <div class="relative z-10">
-                        <div class="w-12 h-12 bg-indigo-500 rounded-lg flex items-center justify-center mb-4">
-                            <i class="fas fa-brain text-white text-xl"></i>
+                        <div class="mb-4">
+                            <img src="https://picsum.photos/seed/p4/600/300" alt="Project screenshot" class="w-full h-36 object-cover rounded-lg">
                         </div>
+                        <!-- icon removed as requested -->
                         <h3 class="text-lg font-semibold text-white mb-2">AI Chat Bot</h3>
                         <p class="text-stone-400 text-sm mb-4">An intelligent chatbot using machine learning and natural
                             language processing.</p>
@@ -378,11 +440,6 @@
                             <span class="px-2 py-1 bg-stone-800 text-stone-300 rounded text-xs">Flask</span>
                         </div>
                         <div class="flex space-x-3 mt-6">
-                            <a href="#"
-                                class="flex items-center space-x-2 px-4 py-2 bg-stone-800 hover:bg-stone-700 border border-stone-700 rounded-lg text-white text-sm transition-all">
-                                <i class="fas fa-globe text-xs"></i>
-                                <span>Website</span>
-                            </a>
                             <a href="#"
                                 class="flex items-center space-x-2 px-4 py-2 bg-stone-800 hover:bg-stone-700 border border-stone-700 rounded-lg text-white text-sm transition-all">
                                 <i class="fab fa-github text-xs"></i>
@@ -396,9 +453,10 @@
                  <div class="group card bg-stone-900 border border-stone-800 rounded-2xl p-6 hover-glow transition-all relative overflow-hidden">
                     <div id="project-5-gradient" class="absolute inset-0 group-hover:bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     <div class="relative z-10">
-                        <div class="w-12 h-12 bg-indigo-500 rounded-lg flex items-center justify-center mb-4">
-                            <i class="fas fa-brain text-white text-xl"></i>
+                        <div class="mb-4">
+                            <img src="https://picsum.photos/seed/p5/600/300" alt="Project screenshot" class="w-full h-36 object-cover rounded-lg">
                         </div>
+                        <!-- icon removed as requested -->
                         <h3 class="text-lg font-semibold text-white mb-2">AI Chat Bot</h3>
                         <p class="text-stone-400 text-sm mb-4">An intelligent chatbot using machine learning and natural
                             language processing.</p>
@@ -408,11 +466,6 @@
                             <span class="px-2 py-1 bg-stone-800 text-stone-300 rounded text-xs">Flask</span>
                         </div>
                         <div class="flex space-x-3 mt-6">
-                            <a href="#"
-                                class="flex items-center space-x-2 px-4 py-2 bg-stone-800 hover:bg-stone-700 border border-stone-700 rounded-lg text-white text-sm transition-all">
-                                <i class="fas fa-globe text-xs"></i>
-                                <span>Website</span>
-                            </a>
                             <a href="#"
                                 class="flex items-center space-x-2 px-4 py-2 bg-stone-800 hover:bg-stone-700 border border-stone-700 rounded-lg text-white text-sm transition-all">
                                 <i class="fab fa-github text-xs"></i>
@@ -424,9 +477,10 @@
                   <div class="group card bg-stone-900 border border-stone-800 rounded-2xl p-6 hover-glow transition-all relative overflow-hidden">
                     <div id="project-5-gradient" class="absolute inset-0 group-hover:bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     <div class="relative z-10">
-                        <div class="w-12 h-12 bg-indigo-500 rounded-lg flex items-center justify-center mb-4">
-                            <i class="fas fa-brain text-white text-xl"></i>
-                        </div>
+                        <div class="mb-4">
+                        <img src="https://picsum.photos/seed/p6/600/300" alt="Project screenshot" class="w-full h-36 object-cover rounded-lg">
+                    </div>
+                    <!-- icon removed as requested -->
                         <h3 class="text-lg font-semibold text-white mb-2">AI Chat Bot</h3>
                         <p class="text-stone-400 text-sm mb-4">An intelligent chatbot using machine learning and natural
                             language processing.</p>
@@ -436,11 +490,6 @@
                             <span class="px-2 py-1 bg-stone-800 text-stone-300 rounded text-xs">Flask</span>
                         </div>
                         <div class="flex space-x-3 mt-6">
-                            <a href="#"
-                                class="flex items-center space-x-2 px-4 py-2 bg-stone-800 hover:bg-stone-700 border border-stone-700 rounded-lg text-white text-sm transition-all">
-                                <i class="fas fa-globe text-xs"></i>
-                                <span>Website</span>
-                            </a>
                             <a href="#"
                                 class="flex items-center space-x-2 px-4 py-2 bg-stone-800 hover:bg-stone-700 border border-stone-700 rounded-lg text-white text-sm transition-all">
                                 <i class="fab fa-github text-xs"></i>
@@ -483,10 +532,24 @@
             <p class="text-center text-stone-400 mb-8 max-w-lg mx-auto">
                 I'm always open to discussing new projects, creative ideas, or opportunities. Feel free to reach out.
             </p>
-            <div class="flex justify-center">
-                <a href="sanketarali5@gmail.com" class="btn-magic text-sm px-6 py-3 rounded-full border border-stone-700 bg-stone-800 hover:bg-stone-700 transition inline-block">
-                    Send a Message
-                </a>
+
+            <div class="max-w-3xl mx-auto space-y-6">
+                <!-- Responsive Google Map embed -->
+                <div class="map-wrapper rounded-lg overflow-hidden border border-stone-800">
+                    <iframe
+                        title="Rajathadri Apartments map"
+                        src="https://www.google.com/maps?q=12.9556575,77.5223053&z=20&output=embed"
+                        style="border:0; width:100%; height:320px; display:block;"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+                <!-- map is embedded above; no external link shown per request -->
+
+                <div class="flex justify-center">
+                    <a href="#" id="send-message-btn" class="btn-magic text-sm px-6 py-3 rounded-full border border-stone-700 bg-stone-800 hover:bg-stone-700 transition inline-block">
+                        Send a Message
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -511,7 +574,7 @@
             <a href="https://instagram.com/sanket_arali" target="_blank" class="text-2xl text-stone-400 hover:text-white transition-all duration-300 transform hover:-translate-y-1">
                 <i class="fab fa-instagram"></i>
             </a>
-            <a href="mailto:sanketarali5@gmail.com" class="text-2xl text-stone-400 hover:text-white transition-all duration-300 transform hover:-translate-y-1">
+            <a href="#" id="footer-mail-btn" class="text-2xl text-stone-400 hover:text-white transition-all duration-300 transform hover:-translate-y-1" aria-label="Send email">
                 <i class="fas fa-envelope"></i>
             </a>
         </div>
@@ -521,11 +584,88 @@
 
 
     <script>
+        // Mobile menu toggle
         document.addEventListener('DOMContentLoaded', () => {
+            // Theme initialization
+            const root = document.documentElement;
+            const storedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            function applyTheme(theme) {
+                root.setAttribute('data-theme', theme);
+                const icon = document.getElementById('theme-icon');
+                if (icon) icon.className = theme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+            }
+            const initialTheme = storedTheme || (prefersDark ? 'dark' : 'light');
+            applyTheme(initialTheme);
+
+            const themeBtn = document.getElementById('theme-toggle');
+            if (themeBtn) {
+                themeBtn.addEventListener('click', () => {
+                    const current = document.documentElement.getAttribute('data-theme') || 'light';
+                    const next = current === 'dark' ? 'light' : 'dark';
+                    applyTheme(next);
+                    localStorage.setItem('theme', next);
+                });
+            }
+            const btn = document.getElementById('mobile-menu-btn');
+            const mobileNav = document.getElementById('mobile-nav');
+            const mobileClose = document.getElementById('mobile-nav-close');
+            if (btn && mobileNav) {
+                const openMenu = () => {
+                    mobileNav.classList.remove('-translate-y-full');
+                    mobileNav.classList.add('translate-y-0');
+                    btn.setAttribute('aria-expanded', 'true');
+                };
+                const closeMenu = () => {
+                    mobileNav.classList.add('-translate-y-full');
+                    mobileNav.classList.remove('translate-y-0');
+                    btn.setAttribute('aria-expanded', 'false');
+                };
+
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+                    if (isOpen) closeMenu(); else openMenu();
+                });
+
+                if (mobileClose) {
+                    mobileClose.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        closeMenu();
+                    });
+                }
+
+                // Close mobile nav when clicking outside (only when open)
+                document.addEventListener('click', (e) => {
+                    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+                    if (!isOpen) return;
+                    if (!mobileNav.contains(e.target) && !btn.contains(e.target)) {
+                        closeMenu();
+                    }
+                });
+                // Prevent clicks inside nav from closing
+                mobileNav.addEventListener('click', (e) => e.stopPropagation());
+
+                // Close the mobile menu when any nav link is clicked (so it navigates and collapses)
+                const mobileLinks = mobileNav.querySelectorAll('a');
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        // small delay to allow anchor navigation on some browsers
+                        setTimeout(() => {
+                            mobileNav.classList.add('-translate-y-full');
+                            mobileNav.classList.remove('translate-y-0');
+                            btn.setAttribute('aria-expanded', 'false');
+                        }, 50);
+                    });
+                });
+            }
+
+            // Parallax effect guard (only when image exists)
             const cards = document.querySelectorAll('.projects-grid .card');
             cards.forEach(card => {
                 const img = card.querySelector('.parallax-container img');
-                
+                if (!img) return; // skip if no image
+
                 card.addEventListener('mousemove', (e) => {
                     const rect = card.getBoundingClientRect();
                     const x = e.clientX - rect.left;
@@ -535,7 +675,7 @@
                     const rotateX = ((centerY - y) / centerY) * 5;
                     const rotateY = ((x - centerX) / centerX) * 5;
                     card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-                    
+
                     const imgTranslateX = ((x - centerX) / centerX) * 10;
                     const imgTranslateY = ((y - centerY) / centerY) * 10;
                     img.style.transform = `translate(${imgTranslateX}px, ${imgTranslateY}px) scale(1.05)`;
@@ -546,6 +686,41 @@
                     img.style.transform = `translate(0px, 0px) scale(1)`;
                 });
             });
+
+            // Open Gmail compose (with mailto fallback)
+            function openGmailCompose(email, subject = '', body = '') {
+                try {
+                    const params = new URLSearchParams();
+                    if (subject) params.set('subject', subject);
+                    if (body) params.set('body', body);
+                    // Gmail compose URL with prefilled to, subject, body
+                    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=${encodeURIComponent(email)}&${params.toString()}`;
+                    const win = window.open(gmailUrl, '_blank');
+                    if (!win) {
+                        // popup blocked or failed - fallback to mailto
+                        window.location.href = `mailto:${email}?${params.toString()}`;
+                    }
+                } catch (e) {
+                    // On any error, fallback to mailto
+                    window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                }
+            }
+
+            // Hook up Send Message and footer mail button to open Gmail
+            const sendBtn = document.getElementById('send-message-btn');
+            if (sendBtn) {
+                sendBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openGmailCompose('sanketarali5@gmail.com', 'Contact from website', 'Hello Sanket,\n\nI found your portfolio and would like to get in touch regarding...');
+                });
+            }
+            const footerMail = document.getElementById('footer-mail-btn');
+            if (footerMail) {
+                footerMail.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openGmailCompose('sanketarali5@gmail.com');
+                });
+            }
         });
     </script>
     
