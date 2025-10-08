@@ -192,6 +192,19 @@
             aspect-ratio: 16 / 9;
             display: block;
         }
+        /* Center the mobile hamburger and keep theme toggle on the right on small screens */
+        @media (max-width: 767px) {
+            header .container { position: relative; }
+            #mobile-menu-btn {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+            /* move theme toggle to the right so it doesn't overlap the centered hamburger */
+            #theme-toggle { position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); }
+        }
     </style>
 </head>
 <body class="gradient-bg">
@@ -207,6 +220,7 @@
                 <a href="#projects" class="nav-link text-sm text-stone-300 hover:text-white transition">Projects</a>
                 <a href="#skills" class="nav-link text-sm text-stone-300 hover:text-white transition">Skills</a>
                 <a href="#contact" class="nav-link text-sm text-stone-300 hover:text-white transition">Contact</a>
+                <a id="download-resume-desktop" href="#" class="nav-link text-sm text-stone-300 hover:text-white transition btn-magic px-3 py-2 rounded" aria-label="Download resume (desktop)">Resume</a>
             </nav>
             <button id="mobile-menu-btn" class="md:hidden text-stone-300" aria-label="Open mobile menu" aria-expanded="false">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -230,6 +244,7 @@
                     <a href="#projects" class="block px-3 py-2 text-sm text-stone-300 hover:text-white">Projects</a>
                     <a href="#skills" class="block px-3 py-2 text-sm text-stone-300 hover:text-white">Skills</a>
                     <a href="#contact" class="block px-3 py-2 text-sm text-stone-300 hover:text-white">Contact</a>
+                    <a id="download-resume-mobile" href="#" class="block px-3 py-2 text-sm text-stone-300 hover:text-white btn-magic rounded" aria-label="Download resume (mobile)">Resume</a>
                 </div>
             </nav>
         </div>
@@ -272,6 +287,9 @@
                 </p>
             </div>
         </section>
+
+        
+        
         
 <!-- Experience Section -->
 <section id="experience" class="py-20">
@@ -329,7 +347,7 @@
             </div>
             <p class="text-sm text-stone-300 mb-4">Alva's Education Foundation</p>
             <ul class="list-disc list-inside text-sm text-stone-400 space-y-2">
-                <li>Completed higher secondary education in Physics, Chemistry, Mathematics, and Biology.</li>
+                <li>Completed higher secondary education in PCMB.</li>
             </ul>
         </div>
     </div>
@@ -359,7 +377,7 @@
                             <span class="px-2 py-1 bg-stone-800 text-stone-300 rounded text-xs">Flask</span>
                         </div>
                         <div class="flex space-x-3 mt-6">
-                            <a href="#"
+                            <a href="https://github.com/Sanketarali" target="_blank" rel="noopener noreferrer" aria-label="View source on GitHub"
                                 class="flex items-center space-x-2 px-4 py-2 bg-stone-800 hover:bg-stone-700 border border-stone-700 rounded-lg text-white text-sm transition-all">
                                 <i class="fab fa-github text-xs"></i>
                                 <span>Source</span>
@@ -387,7 +405,7 @@
                             <span class="px-2 py-1 bg-stone-800 text-stone-300 rounded text-xs">Flask</span>
                         </div>
                         <div class="flex space-x-3 mt-6">
-                            <a href="#"
+                            <a href="https://github.com/Sanketarali" target="_blank" rel="noopener noreferrer" aria-label="View source on GitHub"
                                 class="flex items-center space-x-2 px-4 py-2 bg-stone-800 hover:bg-stone-700 border border-stone-700 rounded-lg text-white text-sm transition-all">
                                 <i class="fab fa-github text-xs"></i>
                                 <span>Source</span>
@@ -414,7 +432,7 @@
                             <span class="px-2 py-1 bg-stone-800 text-stone-300 rounded text-xs">Flask</span>
                         </div>
                         <div class="flex space-x-3 mt-6">
-                            <a href="#"
+                            <a href="https://github.com/Sanketarali" target="_blank" rel="noopener noreferrer" aria-label="View source on GitHub"
                                 class="flex items-center space-x-2 px-4 py-2 bg-stone-800 hover:bg-stone-700 border border-stone-700 rounded-lg text-white text-sm transition-all">
                                 <i class="fab fa-github text-xs"></i>
                                 <span>Source</span>
@@ -440,7 +458,7 @@
                             <span class="px-2 py-1 bg-stone-800 text-stone-300 rounded text-xs">Flask</span>
                         </div>
                         <div class="flex space-x-3 mt-6">
-                            <a href="#"
+                            <a href="https://github.com/Sanketarali" target="_blank" rel="noopener noreferrer" aria-label="View source on GitHub"
                                 class="flex items-center space-x-2 px-4 py-2 bg-stone-800 hover:bg-stone-700 border border-stone-700 rounded-lg text-white text-sm transition-all">
                                 <i class="fab fa-github text-xs"></i>
                                 <span>Source</span>
@@ -466,7 +484,7 @@
                             <span class="px-2 py-1 bg-stone-800 text-stone-300 rounded text-xs">Flask</span>
                         </div>
                         <div class="flex space-x-3 mt-6">
-                            <a href="#"
+                            <a href="https://github.com/Sanketarali" target="_blank" rel="noopener noreferrer" aria-label="View source on GitHub"
                                 class="flex items-center space-x-2 px-4 py-2 bg-stone-800 hover:bg-stone-700 border border-stone-700 rounded-lg text-white text-sm transition-all">
                                 <i class="fab fa-github text-xs"></i>
                                 <span>Source</span>
@@ -490,7 +508,7 @@
                             <span class="px-2 py-1 bg-stone-800 text-stone-300 rounded text-xs">Flask</span>
                         </div>
                         <div class="flex space-x-3 mt-6">
-                            <a href="#"
+                            <a href="https://github.com/Sanketarali" target="_blank" rel="noopener noreferrer" aria-label="View source on GitHub"
                                 class="flex items-center space-x-2 px-4 py-2 bg-stone-800 hover:bg-stone-700 border border-stone-700 rounded-lg text-white text-sm transition-all">
                                 <i class="fab fa-github text-xs"></i>
                                 <span>Source</span>
@@ -525,6 +543,75 @@
                 
             </div>
         </section>
+
+        <!-- Certificates Section -->
+        <section id="certificates" class="py-20">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Certificates</h2>
+            <div class="certificates-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+                <!-- Cert 1 -->
+                <div class="card bg-stone-900 border border-stone-800 rounded-2xl p-6 hover-glow transition-all">
+                    <div class="flex items-start space-x-4 mb-4">
+                        <img src="https://media.licdn.com/dms/image/v2/D562DAQEtWNPsDwLSxw/profile-treasury-image-shrink_160_160/B56Zm.f6MjHAAk-/0/1759837662672?e=1760508000&v=beta&t=-9v7DMzs4L-hB6FezxqxF-8vEZTD1hHwWF5JdLtCh6A" alt="AWS Cloud Practitioner badge" class="w-16 h-16 object-cover rounded-md" loading="lazy">
+                        <div>
+                            <h3 class="text-xl font-semibold mb-1">AWS Cloud Practitioner Essentials</h3>
+                            <p class="text-stone-400 text-sm mb-1">Issuer: Amazon Web Services</p>
+                            <p class="text-stone-400 text-sm mb-0 italic">Link: Not provided</p>
+                        </div>
+                    </div>
+                    <div class="flex space-x-3">
+                        <a href="#" class="btn-magic px-4 py-2 rounded-lg text-sm" aria-disabled="true" aria-label="AWS certificate link not provided">No Link</a>
+                    </div>
+                </div>
+
+                <!-- Cert 2 -->
+                <div class="card bg-stone-900 border border-stone-800 rounded-2xl p-6 hover-glow transition-all">
+                    <div class="flex items-start space-x-4 mb-4">
+                        <img src="https://media.licdn.com/dms/image/v2/D562DAQGRiAFO_nNSgw/profile-treasury-image-shrink_160_160/B56ZnCXTtGIAAo-/0/1759902515385?e=1760508000&v=beta&t=JHwA6uOSm-r8vil6TOy6QwV0hlEsXfcWkXU_pXxBOJc" alt="Introduction to Kubernetes badge" class="w-16 h-16 object-cover rounded-md" loading="lazy">
+                        <div>
+                            <h3 class="text-xl font-semibold mb-1">Introduction to Kubernetes (LFS158)</h3>
+                            <p class="text-stone-400 text-sm mb-1">Issuer: The Linux Foundation</p>
+                            <p class="text-stone-400 text-sm mb-0">Certificate ID: <strong>LF6740mnbfsk</strong></p>
+                        </div>
+                    </div>
+                    <div class="flex space-x-3">
+                        <a href="https://ti-user-certificates.s3.amazonaws.com/e0df7fbf-a057-42af-8a1f-590912be5460/a9ee9c68-25b6-4752-bf5b-10fcae2eee2e-sanket-arali-2cdce95f-5741-443e-878f-abb4919f943d-certificate.pdf" target="_blank" rel="noopener noreferrer" class="btn-magic px-4 py-2 rounded-lg text-sm" aria-label="View Kubernetes certificate">View Certificate</a>
+                    </div>
+                </div>
+
+                <!-- Cert 3 -->
+                <div class="card bg-stone-900 border border-stone-800 rounded-2xl p-6 hover-glow transition-all">
+                    <div class="flex items-start space-x-4 mb-4">
+                        <img src="https://media.licdn.com/dms/image/v2/D562DAQGvbVDyest82Q/profile-treasury-image-shrink_160_160/B56ZnCXdTzI4As-/0/1759902554817?e=1760508000&v=beta&t=3hO9tq-wbupi2BiSRSy8bUwpGbnYExgUnW6LCwimdGY" alt="Introduction to Linux badge" class="w-16 h-16 object-cover rounded-md" loading="lazy">
+                        <div>
+                            <h3 class="text-xl font-semibold mb-1">Introduction to Linux (LFS101)</h3>
+                            <p class="text-stone-400 text-sm mb-1">Issuer: The Linux Foundation</p>
+                            <p class="text-stone-400 text-sm mb-0">Certificate ID: <strong>LF-c5j9iefnyl</strong></p>
+                        </div>
+                    </div>
+                    <div class="flex space-x-3">
+                        <a href="https://ti-user-certificates.s3.amazonaws.com/e0df7fbf-a057-42af-8a1f-590912be5460/a9ee9c68-25b6-4752-bf5b-10fcae2eee2e-sanket-arali-301b6635-4b6d-4b12-a41a-36204984c343-certificate.pdf" target="_blank" rel="noopener noreferrer" class="btn-magic px-4 py-2 rounded-lg text-sm" aria-label="View Linux certificate">View Certificate</a>
+                    </div>
+                </div>
+
+                <!-- Cert 4 -->
+                <div class="card bg-stone-900 border border-stone-800 rounded-2xl p-6 hover-glow transition-all">
+                    <div class="flex items-start space-x-4 mb-4">
+                        <img src="https://media.licdn.com/dms/image/v2/D562DAQFJzqurKknlBg/profile-treasury-image-shrink_160_160/B56ZnCXrSGIsAo-/0/1759902611646?e=1760508000&v=beta&t=ab_atGe9a3D7bpJfEuQAIHxZG4tfDg-ADnBoZxgu2EQ" alt="Azure Data Fundamentals badge" class="w-16 h-16 object-cover rounded-md" loading="lazy">
+                        <div>
+                            <h3 class="text-xl font-semibold mb-1">Microsoft Certified: Azure Data Fundamentals</h3>
+                            <p class="text-stone-400 text-sm mb-1">Issuer: Microsoft</p>
+                            <p class="text-stone-400 text-sm mb-0">Credential ID: <strong>3045F15F2A0A3047</strong></p>
+                        </div>
+                    </div>
+                    <div class="flex space-x-3">
+                        <a href="https://learn.microsoft.com/api/credentials/share/en-us/SanketSArali-1133/3045F15F2A0A3047?sharingId=C768A5523CBE0C90" target="_blank" rel="noopener noreferrer" class="btn-magic px-4 py-2 rounded-lg text-sm" aria-label="View Azure certificate">View Certificate</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        
 
         <!-- Contact Section -->
         <section id="contact" class="py-20">
@@ -705,6 +792,25 @@
                     window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
                 }
             }
+
+            // Resume URL configuration - replace with your PDF link (Google Drive or direct file)
+            // Example Google Drive direct-download style: https://drive.google.com/uc?export=download&id=FILE_ID
+            const RESUME_URL = 'https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_HERE';
+
+            // Hook up Resume download buttons (desktop and mobile)
+            const resumeDesktop = document.getElementById('download-resume-desktop');
+            const resumeMobile = document.getElementById('download-resume-mobile');
+            function openResume() {
+                if (!RESUME_URL || RESUME_URL.includes('YOUR_FILE_ID_HERE')) {
+                    // If user didn't configure URL, fallback to opening a Google Drive viewer in a new tab (or do nothing)
+                    const viewer = 'https://drive.google.com/drive/my-drive';
+                    window.open(viewer, '_blank', 'noopener');
+                    return;
+                }
+                window.open(RESUME_URL, '_blank', 'noopener,noreferrer');
+            }
+            if (resumeDesktop) resumeDesktop.addEventListener('click', (e) => { e.preventDefault(); openResume(); });
+            if (resumeMobile) resumeMobile.addEventListener('click', (e) => { e.preventDefault(); openResume(); });
 
             // Hook up Send Message and footer mail button to open Gmail
             const sendBtn = document.getElementById('send-message-btn');
