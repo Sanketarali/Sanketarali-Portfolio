@@ -192,6 +192,25 @@
             aspect-ratio: 16 / 9;
             display: block;
         }
+        /* Make the mobile full-width panel follow the current theme */
+        #mobile-nav {
+            /* Use theme card color for the panel background */
+            background-color: var(--card-color) !important;
+            color: var(--text-color) !important;
+            /* Keep backdrop blur behavior from the utility class */
+            backdrop-filter: blur(6px);
+        }
+        /* Ensure links and buttons inside the mobile nav use themed colors */
+        #mobile-nav a,
+        #mobile-nav button,
+        #mobile-nav .text-stone-200,
+        #mobile-nav .text-stone-300 {
+            color: var(--muted-text-color) !important;
+        }
+        /* Make the close icon visible and follow heading color */
+        #mobile-nav-close {
+            color: var(--heading-color) !important;
+        }
         /* Center the mobile hamburger and keep theme toggle on the right on small screens */
         @media (max-width: 767px) {
             header .container { position: relative; }
